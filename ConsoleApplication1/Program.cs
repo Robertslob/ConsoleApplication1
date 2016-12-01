@@ -19,7 +19,7 @@ namespace ConsoleApplication1
             int p = int.Parse(numbers[4]);
             int u = int.Parse(numbers[5]);
             string hash = numbers[6];
-            Checker c = new Checker(b, e, m, p, u, hash);
+            Checker c = new Checker(l, b, e, m, p, u, hash);
             Console.ReadLine();
         }
     }

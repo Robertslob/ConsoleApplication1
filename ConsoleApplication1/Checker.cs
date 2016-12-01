@@ -12,9 +12,14 @@ namespace ConsoleApplication1
         public static int totalAllThreads = 0;
         private static bool tel;
         private static Object LOCK = new Object();
+        public static Locks locker;
 
-        public Checker(int lower, int upper, int m, int p, int u, string s)
+        public Checker(int l, int lower, int upper, int m, int p, int u, string s)
         {
+            if (l == 1)
+                locker = new CSharpLock();
+            else locker = new OwnLock();
+
             if (u == 0 | u == 2)
                 tel = true;
             else
@@ -73,13 +78,20 @@ namespace ConsoleApplication1
                 int sum = sumNumber(i);
                 if (sum % m == 0)
                 {
-                    lock (LOCK)
+                    /*lock (LOCK)
                     {
                         Console.WriteLine(totalAllThreads + " " + i);
-                        Interlocked.Increment(ref totalAllThreads);
-                    }
+                        totalAllThreads++;
+                    }*/
+                    locker.LockList(LOCK, i);
                 }
             }
+        }
+
+        public static void ListWriteIncr(int i)
+        {
+            Console.WriteLine(totalAllThreads + " " + i);
+            totalAllThreads++;
         }
 
         private static void CheckBoundariesTel(int low, int upper, int m)
@@ -91,14 +103,17 @@ namespace ConsoleApplication1
                 if (sum % m == 0)
                     total++;
             }
-            Interlocked.Add(ref totalAllThreads, total);
+            locker.LockTel(LOCK, total);
+        }
+
+        public static void TelAdd(int i)
+        {
+            totalAllThreads += i;
         }
 
         private static void CheckBoundariesHash(int low, int upper, int m, string hash)
         {
             SHA1Managed sha = new SHA1Managed();
-            int k = 274856182;
-            //Console.WriteLine(BitConverter.ToString((sha.ComputeHash(Encoding.UTF8.GetBytes(k.ToString())))));
             for (int i = low; i < upper; i++)
             {
                 if (totalAllThreads == 0)
@@ -111,13 +126,18 @@ namespace ConsoleApplication1
                         byte[] shaHash = sha.ComputeHash(Encoding.UTF8.GetBytes(i.ToString()));
                         if (string.Join("", shaHash.Select(b => b.ToString("x2")).ToArray()) == hash)
                         {
-                            Console.WriteLine(i);
-                            Interlocked.Increment(ref totalAllThreads);
+                            locker.LockHash(LOCK, i);
                         }
                     }                        
                 }
                 else break;
             }
+        }
+
+        public static void HashWriteIncr(int i)
+        {
+            Console.WriteLine(i);
+            totalAllThreads++;
         }
     }
 }
