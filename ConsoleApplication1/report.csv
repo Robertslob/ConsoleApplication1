@@ -1,9 +1,9 @@
 Testcase;Status;Tijd;CPU;Omschrijving
 Single Threaded;Correct;0.09;100%;Werkt je programma goed met maar 1 thread?
-Single Threaded;Correct;2.36;101%;En met een grotere testcase?
-2 threads (Eigen Lock, 5 runs);Correct;1.20;198%;Opwarmen: 2 threads (gemiddelde 5 runs)
-4 threads (Eigen Lock, 5 runs);Correct;0.62;396%;Opwarmen: 4 threads (gemiddelde 5 runs)
-16 threads (Eigen Lock, 1 run);Correct;0.52;737%;Echt lekker op gang: 16 threads
+Single Threaded;Correct;2.34;100%;En met een grotere testcase?
+2 threads (Eigen Lock, 5 runs);Correct;1.18;200%;Opwarmen: 2 threads (gemiddelde 5 runs)
+4 threads (Eigen Lock, 5 runs);Correct;0.62;399%;Opwarmen: 4 threads (gemiddelde 5 runs)
+16 threads (Eigen Lock, 1 run);Correct;0.51;765%;Echt lekker op gang: 16 threads
 7 threads (Eigen Lock, 3 runs);Correct;0.51;700%;Nu geen saaie 2-macht: 7 threads
 Eerlijk delen;Correct;0.01;100%;10 getallen over 3 threads verdelen
 Meer threads dan nummers;Correct;0.01;100%;10 getallen over 17 threads verdelen
@@ -16,16 +16,16 @@ Zoekmodus;Correct;0.01;100%;Voorbeeld uit opdracht (Eigen Lock)
 Zoekmodus;Correct;0.01;100%;Voorbeeld uit opdracht (Eigen Lock)
 Zoekmodus;Correct;0.01;100%;Strikzoekopdracht
 Zoekmodus;Correct;0.01;100%;Terminatie
-1 thread (Eigen Lock, 5 runs);Correct;2.36;100%;Baseline: 5 runs met 1 thread.
+1 thread (Eigen Lock, 5 runs);Correct;2.35;100%;Baseline: 5 runs met 1 thread.
 Versnellingstest (Eigen Lock);Correct;-;-;Is je programma sneller met meer threads?
-2 threads (C#-Lock, 5 runs);Correct;1.20;201%;C#-Lock: 2 threads (gemiddelde 5 runs)
-4 threads (C#-Lock, 5 runs);Correct;0.62;398%;C#-Lock: 4 threads (gemiddelde 5 runs)
-1 thread (C#-Lock, 5 runs);Correct;2.36;100%;Baseline: 5 runs met 1 thread.
+2 threads (C#-Lock, 5 runs);Correct;1.19;199%;C#-Lock: 2 threads (gemiddelde 5 runs)
+4 threads (C#-Lock, 5 runs);Correct;0.61;402%;C#-Lock: 4 threads (gemiddelde 5 runs)
+1 thread (C#-Lock, 5 runs);Correct;2.37;100%;Baseline: 5 runs met 1 thread.
 Versnellingstest (C#-Lock);Correct;-;-;Is je programma sneller met meer threads?
 Zoekmodus;Correct;0.01;100%;Voorbeeld uit opdracht (C#-Lock)
-Zoekmodus;Correct;0.66;408%;Groter zoekbereik
-Zoekmodus: 2 threads;Correct;0.61;198%;Zoekmodus: 2 threads (gemiddelde 5 runs)
-Zoekmodus: 4 threads;Correct;0.34;335%;Zoekmodus: 4 threads (gemiddelde 5 runs)
+Zoekmodus;Correct;0.68;391%;Groter zoekbereik
+Zoekmodus: 2 threads;Correct;0.60;203%;Zoekmodus: 2 threads (gemiddelde 5 runs)
+Zoekmodus: 4 threads;Correct;0.34;378%;Zoekmodus: 4 threads (gemiddelde 5 runs)
 Zoekmodus: 1 thread;Correct;1.16;100%;Baseline: 5 runs met 1 thread.
 Versnellingstest (Zoekmodus);Correct;-;-;Is je programma sneller met meer threads?
 Lijstmodus (Eigen Lock, 8 threads);Correct;0.01;100%;Dit is een test of de lijstmodus werkt
@@ -50,7 +50,7 @@ Als het antwoord verkeerd is is er waarschijnlijk iets mis met je BSN-test.
 
 ------------------------------------
 
-2;Single Threaded;Correct;2.36;101%;En met een grotere testcase?
+2;Single Threaded;Correct;2.34;100%;En met een grotere testcase?
 Test 2 - Single Threaded
 En met een grotere testcase?
 
@@ -67,7 +67,7 @@ Als het antwoord verkeerd is is er waarschijnlijk iets mis met je BSN-test.
 
 ------------------------------------
 
-3;2 threads (Eigen Lock, 5 runs);Correct;1.20;198%;Opwarmen: 2 threads (gemiddelde 5 runs)
+3;2 threads (Eigen Lock, 5 runs);Correct;1.18;200%;Opwarmen: 2 threads (gemiddelde 5 runs)
 Test 3 - 2 threads (Eigen Lock, 5 runs)
 Opwarmen: 2 threads (gemiddelde 5 runs)
 
@@ -82,7 +82,7 @@ Verwachte uitvoer:
 
 ------------------------------------
 
-4;4 threads (Eigen Lock, 5 runs);Correct;0.62;396%;Opwarmen: 4 threads (gemiddelde 5 runs)
+4;4 threads (Eigen Lock, 5 runs);Correct;0.62;399%;Opwarmen: 4 threads (gemiddelde 5 runs)
 Test 4 - 4 threads (Eigen Lock, 5 runs)
 Opwarmen: 4 threads (gemiddelde 5 runs)
 
@@ -97,7 +97,7 @@ Verwachte uitvoer:
 
 ------------------------------------
 
-5;16 threads (Eigen Lock, 1 run);Correct;0.52;737%;Echt lekker op gang: 16 threads
+5;16 threads (Eigen Lock, 1 run);Correct;0.51;765%;Echt lekker op gang: 16 threads
 Test 5 - 16 threads (Eigen Lock, 1 run)
 Echt lekker op gang: 16 threads
 
@@ -340,15 +340,15 @@ Invoer:
 0 0 10 1 3 1 0
 
 Uitvoer:
-1 3
-2 4
-3 5
-4 0
-5 1
-6 6
-7 2
-8 7
-9 8
+1 0
+2 3
+3 1
+4 6
+5 2
+6 7
+7 4
+8 8
+9 5
 10 9
 
 Let op: bij deze test is de modulus 1. Het is niet de bedoeling dat je dit afvangt als speciaal geval, deze test dient juist om te zien of je verdeling geen gaten laat vallen.
@@ -446,7 +446,7 @@ Deze test kijkt of de terminatiemodus goed werkt. Een TIMELIMIT hier betekent wa
 
 ------------------------------------
 
-18;1 thread (Eigen Lock, 5 runs);Correct;2.36;100%;Baseline: 5 runs met 1 thread.
+18;1 thread (Eigen Lock, 5 runs);Correct;2.35;100%;Baseline: 5 runs met 1 thread.
 Test 18 - 1 thread (Eigen Lock, 5 runs)
 Baseline: 5 runs met 1 thread.
 
@@ -465,14 +465,14 @@ Verwachte uitvoer:
 Test 19 - Versnellingstest (Eigen Lock)
 Is je programma sneller met meer threads? Met deze test kijken we of je programma ook echt sneller gaat lopen als we meer threads gebruiken.
 
-Versnelling 1 naar 2 threads: 197% (moet minstens 125% zijn)
-Versnelling 2 naar 4 threads: 194% (moet minstens 110% zijn)
+Versnelling 1 naar 2 threads: 199% (moet minstens 125% zijn)
+Versnelling 2 naar 4 threads: 190% (moet minstens 110% zijn)
 
 Deze test vergelijkt de snelheid van je programma op dezelfde invoer met een verschillend aantal cores. Dit werkt alleen correct als je computer genoeg 'echte' (niet virtuele) cores heeft. Als de versnelling niet hoog genoeg is, kan dit duiden op te agressieve locking of dat je programma niet parallel werkt. Let op dat het resultaat van deze test sterk afhangt van de gebruikte computer, deze test is dus alleen ter indicatie.
 
 ------------------------------------
 
-20;2 threads (C#-Lock, 5 runs);Correct;1.20;201%;C#-Lock: 2 threads (gemiddelde 5 runs)
+20;2 threads (C#-Lock, 5 runs);Correct;1.19;199%;C#-Lock: 2 threads (gemiddelde 5 runs)
 Test 20 - 2 threads (C#-Lock, 5 runs)
 C#-Lock: 2 threads (gemiddelde 5 runs)
 
@@ -487,7 +487,7 @@ Verwachte uitvoer:
 
 ------------------------------------
 
-21;4 threads (C#-Lock, 5 runs);Correct;0.62;398%;C#-Lock: 4 threads (gemiddelde 5 runs)
+21;4 threads (C#-Lock, 5 runs);Correct;0.61;402%;C#-Lock: 4 threads (gemiddelde 5 runs)
 Test 21 - 4 threads (C#-Lock, 5 runs)
 C#-Lock: 4 threads (gemiddelde 5 runs)
 
@@ -502,7 +502,7 @@ Verwachte uitvoer:
 
 ------------------------------------
 
-22;1 thread (C#-Lock, 5 runs);Correct;2.36;100%;Baseline: 5 runs met 1 thread.
+22;1 thread (C#-Lock, 5 runs);Correct;2.37;100%;Baseline: 5 runs met 1 thread.
 Test 22 - 1 thread (C#-Lock, 5 runs)
 Baseline: 5 runs met 1 thread.
 
@@ -521,8 +521,8 @@ Verwachte uitvoer:
 Test 23 - Versnellingstest (C#-Lock)
 Is je programma sneller met meer threads? Met deze test kijken we of je programma ook echt sneller gaat lopen als we meer threads gebruiken.
 
-Versnelling 1 naar 2 threads: 197% (moet minstens 125% zijn)
-Versnelling 2 naar 4 threads: 194% (moet minstens 110% zijn)
+Versnelling 1 naar 2 threads: 199% (moet minstens 125% zijn)
+Versnelling 2 naar 4 threads: 195% (moet minstens 110% zijn)
 
 Deze test vergelijkt de snelheid van je programma op dezelfde invoer met een verschillend aantal cores. Dit werkt alleen correct als je computer genoeg 'echte' (niet virtuele) cores heeft. Als de versnelling niet hoog genoeg is, kan dit duiden op te agressieve locking of dat je programma niet parallel werkt. Let op dat het resultaat van deze test sterk afhangt van de gebruikte computer, deze test is dus alleen ter indicatie.
 
@@ -545,7 +545,7 @@ Deze test kijkt of de zoekmodus goed geimplementeerd is. Als het antwoord fout i
 
 ------------------------------------
 
-25;Zoekmodus;Correct;0.66;408%;Groter zoekbereik
+25;Zoekmodus;Correct;0.68;391%;Groter zoekbereik
 Test 25 - Zoekmodus
 Groter zoekbereik
 
@@ -562,7 +562,7 @@ Deze test kijkt of de zoekmodus goed geimplementeerd is. Als het antwoord fout i
 
 ------------------------------------
 
-26;Zoekmodus: 2 threads;Correct;0.61;198%;Zoekmodus: 2 threads (gemiddelde 5 runs)
+26;Zoekmodus: 2 threads;Correct;0.60;203%;Zoekmodus: 2 threads (gemiddelde 5 runs)
 Test 26 - Zoekmodus: 2 threads
 Zoekmodus: 2 threads (gemiddelde 5 runs)
 
@@ -577,7 +577,7 @@ Verwachte uitvoer:
 
 ------------------------------------
 
-27;Zoekmodus: 4 threads;Correct;0.34;335%;Zoekmodus: 4 threads (gemiddelde 5 runs)
+27;Zoekmodus: 4 threads;Correct;0.34;378%;Zoekmodus: 4 threads (gemiddelde 5 runs)
 Test 27 - Zoekmodus: 4 threads
 Zoekmodus: 4 threads (gemiddelde 5 runs)
 
@@ -611,8 +611,8 @@ Verwachte uitvoer:
 Test 29 - Versnellingstest (Zoekmodus)
 Is je programma sneller met meer threads? Met deze test kijken we of je programma ook echt sneller gaat lopen als we meer threads gebruiken.
 
-Versnelling 1 naar 2 threads: 190% (moet minstens 125% zijn)
-Versnelling 2 naar 4 threads: 179% (moet minstens 110% zijn)
+Versnelling 1 naar 2 threads: 193% (moet minstens 125% zijn)
+Versnelling 2 naar 4 threads: 176% (moet minstens 110% zijn)
 
 Deze test vergelijkt de snelheid van je programma op dezelfde invoer met een verschillend aantal cores. Dit werkt alleen correct als je computer genoeg 'echte' (niet virtuele) cores heeft. Als de versnelling niet hoog genoeg is, kan dit duiden op te agressieve locking of dat je programma niet parallel werkt. Let op dat het resultaat van deze test sterk afhangt van de gebruikte computer, deze test is dus alleen ter indicatie.
 
@@ -628,37 +628,37 @@ Invoer:
 Uitvoer:
 1 123456804
 2 123456978
-3 123457290
-4 123456986
-5 123457169
-6 123457088
-7 123457339
-8 123456812
-9 123457347
-10 123456820
-11 123456994
-12 123457355
-13 123457177
-14 123457003
-15 123456889
-16 123457185
-17 123457096
-18 123457193
-19 123456897
-20 123457011
-21 123456901
-22 123457100
-23 123457428
-24 123457363
-25 123457436
-26 123457371
-27 123457258
-28 123457444
-29 123457266
-30 123457452
-31 123457274
-32 123457460
-33 123457282
+3 123457088
+4 123457169
+5 123456812
+6 123457290
+7 123456820
+8 123457096
+9 123456986
+10 123457177
+11 123457339
+12 123456889
+13 123457347
+14 123456897
+15 123457355
+16 123456901
+17 123457363
+18 123457185
+19 123457100
+20 123457371
+21 123456994
+22 123457193
+23 123457003
+24 123457011
+25 123457258
+26 123457266
+27 123457274
+28 123457282
+29 123457428
+30 123457436
+31 123457444
+32 123457452
+33 123457460
 34 123457509
 35 123457517
 36 123457525
@@ -684,51 +684,51 @@ Invoer:
 
 Uitvoer:
 1 123456804
-2 123456812
-3 123456820
-4 123456889
-5 123456897
-6 123456901
-7 123457290
-8 123457339
-9 123457347
-10 123457428
-11 123457355
-12 123457363
-13 123457371
-14 123457436
-15 123457444
-16 123457452
-17 123457460
-18 123457509
-19 123457517
-20 123457525
-21 123457533
-22 123457169
-23 123457177
-24 123457185
-25 123457193
-26 123457258
-27 123457266
-28 123457274
-29 123457282
-30 123457541
-31 123457606
-32 123457614
-33 123457622
-34 123457630
-35 123457699
-36 123457703
-37 123457711
-38 123457788
-39 123457088
-40 123457096
-41 123457100
-42 123456978
-43 123456986
-44 123456994
-45 123457003
-46 123457011
+2 123457541
+3 123456812
+4 123456820
+5 123457606
+6 123457614
+7 123457622
+8 123456889
+9 123457630
+10 123456897
+11 123456901
+12 123457428
+13 123457436
+14 123457444
+15 123457452
+16 123457460
+17 123457509
+18 123457517
+19 123457525
+20 123457533
+21 123457699
+22 123457703
+23 123457711
+24 123457788
+25 123456978
+26 123456986
+27 123456994
+28 123457003
+29 123457011
+30 123457290
+31 123457339
+32 123457347
+33 123457355
+34 123457363
+35 123457371
+36 123457088
+37 123457096
+38 123457100
+39 123457169
+40 123457177
+41 123457185
+42 123457193
+43 123457258
+44 123457266
+45 123457274
+46 123457282
 
 Microsoft Windows NT 6.2.9200.0 (x64)
 .NET version: 4.0.30319.42000

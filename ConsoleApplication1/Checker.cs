@@ -10,8 +10,6 @@ namespace ConsoleApplication1
     class Checker
     {
         public static int totalAllThreads = 0;
-        private static bool tel;
-        private static Object LOCK = new Object();
         public static Locks locker;
 
         public Checker(int l, int lower, int upper, int m, int p, int u, string s)
@@ -20,26 +18,26 @@ namespace ConsoleApplication1
                 locker = new CSharpLock();
             else locker = new OwnLock();
 
-            if (u == 0 | u == 2)
-                tel = true;
-            else
-            {
-                tel = false;
+            if (u == 1)
                 totalAllThreads = 1;
-            }
 
             Thread[] ts = new Thread[p];
             for(int i = 0; i < p; i++)
             {
                 int from = lower + (int)((i * (long)(upper-lower)) / p);
                 int to = lower + (int)(((i +1)* (long)(upper-lower)) / p);
-                if (tel)
+                switch (u)
                 {
-                    if (u == 0)
+                    case 0:
                         ts[i] = new Thread(() => CheckBoundariesTel(from, to, m));
-                    else ts[i] = new Thread(() => CheckBoundariesHash(from, to, m, s));
+                        break;
+                    case 1:
+                        ts[i] = new Thread(() => CheckBoundariesList(from, to, m));
+                        break;
+                    case 2:
+                        ts[i] = new Thread(() => CheckBoundariesHash(from, to, m, s));
+                        break;
                 }
-                else ts[i] = new Thread(() => CheckBoundariesList(from, to, m));
             }
             
             for(int i = 0; i<p; i++)
@@ -51,7 +49,7 @@ namespace ConsoleApplication1
             {
                 ts[i].Join();
             }
-            if(tel && u ==0)
+            if(u ==0)
                 Console.WriteLine(totalAllThreads);
             if (totalAllThreads == 0 && u == 2)
                 Console.WriteLine("-1");
@@ -77,14 +75,7 @@ namespace ConsoleApplication1
             {
                 int sum = sumNumber(i);
                 if (sum % m == 0)
-                {
-                    /*lock (LOCK)
-                    {
-                        Console.WriteLine(totalAllThreads + " " + i);
-                        totalAllThreads++;
-                    }*/
-                    locker.LockList(LOCK, i);
-                }
+                    locker.LockList(i);
             }
         }
 
@@ -103,7 +94,7 @@ namespace ConsoleApplication1
                 if (sum % m == 0)
                     total++;
             }
-            locker.LockTel(LOCK, total);
+            locker.LockTel(total);
         }
 
         public static void TelAdd(int i)
@@ -126,7 +117,7 @@ namespace ConsoleApplication1
                         byte[] shaHash = sha.ComputeHash(Encoding.UTF8.GetBytes(i.ToString()));
                         if (string.Join("", shaHash.Select(b => b.ToString("x2")).ToArray()) == hash)
                         {
-                            locker.LockHash(LOCK, i);
+                            locker.LockHash(i);
                         }
                     }                        
                 }
