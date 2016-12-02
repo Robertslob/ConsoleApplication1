@@ -51,6 +51,7 @@ namespace ConsoleApplication1
             }
             if(u ==0)
                 Console.WriteLine(totalAllThreads);
+            // If no matching hash has been found
             if (totalAllThreads == 0 && u == 2)
                 Console.WriteLine("-1");
             
@@ -121,6 +122,7 @@ namespace ConsoleApplication1
                         }
                     }                        
                 }
+                // Else some other thread has found a matching hash, thus we terminate
                 else break;
             }
         }

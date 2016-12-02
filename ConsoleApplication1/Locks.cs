@@ -9,7 +9,6 @@ namespace ConsoleApplication1
 {
     public abstract class Locks
     {
-        protected bool islocked = false;
         public abstract void LockList(int i);
         public abstract void LockTel(int i);
         public abstract void LockHash(int i);
@@ -17,8 +16,10 @@ namespace ConsoleApplication1
 
     public class OwnLock : Locks
     {
-        int c = 0;
+        private int c = 0;
 
+        // The methods look if the lock is free, if so, they do their action depending on the mode
+        // Otherwise they look again if the lock is free and repeat this process
         public override void LockList(int i)
         {
             while (0 != Interlocked.CompareExchange(ref c, 1, 0))
@@ -44,6 +45,7 @@ namespace ConsoleApplication1
         }
     }
 
+    // The standard lock of C#
     public class CSharpLock : Locks
     {
         private Object o = new Object();
